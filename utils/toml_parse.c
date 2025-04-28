@@ -15,8 +15,10 @@ nodes_creds_t* get_creds(char *conf_filename){
     
     conf_file = fopen(conf_filename, "r");
     toml_table_t *conf = toml_parse_file(conf_file, errbuff, 200);
-    if (!conf)
-        return ret;
+    if (!conf){
+        free(ret);
+        return NULL;
+    }
 
     toml_datum_t n_nodes = toml_int_in(conf, "num_of_nodes");
     if (!n_nodes.ok)

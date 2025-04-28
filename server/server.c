@@ -122,7 +122,11 @@ int main(){
     int server_fd, accept_fd;
     char block_filename[512];
     int port = 1480, len;
-    nodes_creds_t* creds = get_creds("/home/trol53/pets/DistributedDataBaseC/utils/config.toml");
+    nodes_creds_t* creds = get_creds("./config.toml");
+    if (creds == NULL){
+        printf("Can't parse config\n");
+        return 1;
+    }
     threadpool_t* threadpool = threadpool_init(4);
     if (threadpool == NULL)
         return 1;
