@@ -49,14 +49,13 @@ void read_header(int client_fd, char* filename, int* f_size, char* op){
 }
 
 int main(int argc, char** argv){
-    // creds = get_creds("./utils/config.toml");
+
 
     struct sockaddr_in server, client;
     int server_fd, accept_fd;
     char block_filename[512];
     int port, len;
-    // nodes_creds_t* creds = get_creds("/home/trol53/pets/DistributedDataBaseC/utils/config.toml");
-    // threadpool_t* threadpool = threadpool_init(4);
+
     if (argc == 2){
         port = atoi(argv[1]);
     }
